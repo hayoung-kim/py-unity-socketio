@@ -18,7 +18,7 @@ public class commandServer : MonoBehaviour {
         _socket = GameObject.Find("SocketIO").GetComponent<SocketIOComponent>();
         Debug.Log(" [-] socket game object is found.");
 
-        _cube.position = new Vector3(0.0f, 5f, 0.0f);
+        _cube.position = new Vector3(0.0f, 3f, 0.0f);
 
         _socket.On("connect", (SocketIOEvent obj) =>
         {
@@ -38,7 +38,7 @@ public class commandServer : MonoBehaviour {
 
         _socket.Emit("test", jdata);
         _socket.On("speed", getSpeed);
-        _cube.position = _cube.position + new Vector3(0f, vy, 0f) + new Vector3(0f, Random.Range(-0.1f, 0.1f), 0f);
+        _cube.position = _cube.position + new Vector3(0f, vy, 0f) + new Vector3(0f, Random.Range(-0.05f, 0.05f), 0f);
     }
 
     void getSpeed(SocketIOEvent obj)
